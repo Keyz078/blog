@@ -31,7 +31,7 @@ COPY run.sh /run.sh
 CMD ["/run.sh"]
 ```
 
-### 1. Create squid.conf
+### 3. Create squid.conf
 
 ```bash
 acl localnet src 172.17.0.0/16          # depending on you
@@ -56,7 +56,7 @@ refresh_pattern .               0       20%     4320
 deny_info ERR_ACCESS_DENIED clamav_service_req
 ```
 
-### 1. Create list.acl (domain that you want to allow)
+### 4. Create list.acl (domain that you want to allow)
 
 ```bash
 nano list.acl
@@ -66,7 +66,7 @@ www.youtube.com
 ---
 ```
 
-### 2. Create script for container
+### 5. Create script for container
 
 ```bash
 nano run.sh
@@ -81,13 +81,13 @@ sleep 10
 tail -f /var/log/squid/access.log
 ```
 
-### 3. Let’s build the new image
+### 6. Let’s build the new image
 
 ```bash
 docker build $YOUR_PATH/Dockerfile -t btech/squid:v1.1
 ```
 
-### 4. Run container with new image
+### 7. Run container with new image
 
 ```bash
 docker run -itd -p 3128 --name squid btech/squid:v1.1

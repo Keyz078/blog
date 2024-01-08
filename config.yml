@@ -17,8 +17,8 @@ minify:
 params:
   env: production
   title: Luqinthar Sudarsono
-  description: "This is my journal"
-  keywords: [Blog, Portfolio, Technology, SysAdmin, SysOps]
+  description: "Nani Kore?"
+  keywords: [Blog, Portfolio, Technology, SysAdmin]
   author: Me
   images: "assets/images/profile.jpg"
   defaultTheme: dark
@@ -57,31 +57,29 @@ params:
   profileMode:
       enabled: true
       title: "Luqinthar Sudarsono"
-      subtitle: "Hai, kenal lebih dekat dengan saya, klik tautan dibawah ini. 👋"
+      subtitle: "いらっしゃいませ"
       imageUrl: "assets/images/profile.jpg"
       imageTitle: "me"
       imageWidth: 200
       imageHeight: 200
 
-  homeInfoParams:
-    Title: "Halo, selamat datang \U0001F642"
-    Content: "Hai, kenal lebih dekat dengan saya, klik tautan dibawah ini. 👋"
+  # homeInfoParams:
+  #   Title: "Halo, selamat datang \U0001F642"
+  #   Content: "Hai, kenal lebih dekat dengan saya, klik tautan dibawah ini. 👋"
 
   socialIcons:
     - name: email
-      url: "mailto:helovikipranata@gmail.com"
+      url: "mailto:luqinthar@gmail.com"
     - name: telegram
-      url: "https://t.me/vikipranata"
+      url: "https://t.me/usrlocalbin"
     - name: instagram
-      url: "https://instagram.com/vikipranata"
-    - name: twitter
-      url: "https://twitter.com/vikipranata"
+      url: "https://instagram.com/usrbin.rm.rf"
     - name: credly
-      url: "https://www.credly.com/users/vikipranata"
+      url: "https://www.credly.com/users/luqinthar-sudarsono"
     - name: github
-      url: "https://github.com/vikipranata"
+      url: "https://github.com/Keyz078"
     - name: linkedin
-      url: "https://www.linkedin.com/in/vikipranata"
+      url: "https://www.linkedin.com/in/luqinthar-sudarsono"
 
   cover:
     hidden: true

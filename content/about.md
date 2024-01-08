@@ -20,7 +20,7 @@ Luqinthar Sudarsono 🚀
 ### Career
 
 1. [PT Bonet Utama](https://bonet.co.id), Network Engineer (Internship), May 2017 - June 2017
-2. [PT Boer Technology](https://btech.id), Cloud Engineer, Jan 2022 - 
+2. [PT Boer Technology](https://btech.id), Cloud Engineer, Jan 2022 - Now
 
 ### Certificates
 

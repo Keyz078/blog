@@ -43,15 +43,15 @@ params:
   assets:
     # disableHLJS: true
     # disableFingerprinting: true
-    favicon: "assets/images/panda.png"
-    favicon16x16: "assets/images/panda.png"
-    favicon32x32: "assets/images/panda.png"
-    apple_touch_icon: "assets/images/panda.png"
-    safari_pinned_tab: "assets/images/panda.png"
+    favicon: "assets/images/favicon.ico"
+    favicon16x16: "assets/images/favicon.ico"
+    favicon32x32: "assets/images/favicon.ico"
+    apple_touch_icon: "assets/images/favicon.ico"
+    safari_pinned_tab: "assets/images/favicon.ico"
 
   label:
     text: "Home"
-    icon: assets/images/panda.png
+    icon: assets/images/favicon.ico
     iconHeight: 20
 
   profileMode:

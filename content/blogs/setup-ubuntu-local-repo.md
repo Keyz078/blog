@@ -1,16 +1,16 @@
 ---
 author: "Luqinthar Sudarsono"
 title: "Setup ubuntu local repository with apt-mirror"
-description : "This time let's build a ubuntu mirror repository using apt-mirror"
+description : "This time let's build ubuntu local repository using apt-mirror"
 date: 2024-01-09T20:33:01+07:00
 tags: ["linux","repo","package","ubuntu"]
 showToc: true
 ---
-So, the repo that we will mirror is the whole focal repository from the official [ubuntu](http://your-address/)
+So, the repo that we will mirror is the whole focal repository from the official [ubuntu](http://archive.ubuntu.com/)
 
 ## Preparation
 
-> Note: Make sure you have external disk with size minimum 500GB for the package
+> Important: Make sure you have external disk with size minimum 500GB for the package
 
 ### 1. Install apt-mirror
 
@@ -52,7 +52,6 @@ deb http://archive.ubuntu.com/ubuntu focal-security universe
 deb http://archive.ubuntu.com/ubuntu focal-security multiverse
 
 clean http://archive.ubuntu.com/ubuntu
-
 ```
 ## Mirroring
 
@@ -79,18 +78,16 @@ sudo apt install apache2
 ### 4. Create symbolic link
 
 ```bash
-
 ln -s /mirror/archive.ubuntu.com/ubuntu /var/www/html/ubuntu
-
 ```
 
-so the path on the site if we take a look it will be like this
+so the path on repo site if we take a look it will be like this
 
 `http://your-address/ubuntu`
 
-### 5 Add cnf
+### 5. Add cnf
 
-So, lately i got some issue after mirroring and testing the repo, it got some error about cnf.
+Lately i got some issues after mirroring and testing the repo, it got error about cnf.
 example:
 
 ```bash

@@ -24,13 +24,14 @@ sudo apt install apt-mirror
 ### 2. Setup mirror.list
 
 ```bash
-cd /etc/apt/mirror.list
+cd /etc/apt/
+sudo nano mirror.list
 
 ############# config ##################
 #
-set base_path    /mirror # external disk
+# set base_path    
 #
-# set mirror_path  $base_path/mirror
+set mirror_path  /mirror # depends on your mount path
 # set skel_path    $base_path/skel
 # set var_path     $base_path/var
 # set cleanscript $var_path/clean.sh

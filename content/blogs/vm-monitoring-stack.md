@@ -183,7 +183,7 @@ sudo systemctl status prometheus.service
 
 ## 3. Exploring
 
-Now we have both node exporter and prometheus are running, so let's take a look to the prometheus dashboard. 
+Now we have both node exporter and prometheus are running, so let's take a look to the prometheus dashboard.    
 You can access your prometheus by browsing it at `http://your-address:9090`. The dashboard should be like this
 
 ![prometheus-1](https://keyz.my.id/assets/images/prometheus-1.png)

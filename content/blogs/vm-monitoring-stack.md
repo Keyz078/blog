@@ -1,6 +1,6 @@
 ---
 author: "Luqinthar Sudarsono"
-title: "Simple VM Monitoring stack (node-exporter, and prometheus)"
+title: "Simple VM utilization monitoring with Node Exporter and Prometheus"
 description : "Have you ever wondered if you want to make a monitoring system with free and easy to set up?"
 date: 2024-01-11T22:30:16+07:00
 tags: ["linux","monitoring"]

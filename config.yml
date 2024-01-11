@@ -43,15 +43,15 @@ params:
   assets:
     # disableHLJS: true
     # disableFingerprinting: true
-    favicon: "assets/images/favicon.ico"
-    favicon16x16: "assets/images/favicon.ico"
-    favicon32x32: "assets/images/favicon.ico"
-    apple_touch_icon: "assets/images/favicon.ico"
-    safari_pinned_tab: "assets/images/favicon.ico"
+    favicon: "assets/images/saitama-96.png"
+    favicon16x16: "assets/images/saitama-16.png"
+    favicon32x32: "assets/images/saitama-32.png"
+    apple_touch_icon: "assets/images/saitama-96.png"
+    safari_pinned_tab: "assets/images/saitama-96.png"
 
   label:
     text: "Home"
-    icon: assets/images/favicon.ico
+    icon: "assets/images/saitama-96.png"
     iconHeight: 20
 
   profileMode:

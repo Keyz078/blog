@@ -15,7 +15,7 @@ Make user for node exporter systemd service
 
 ```bash
 sudo useradd node_exporter -s /bin/false
-```
+```    
 Download the node exporter, you can check and download different version on https://prometheus.io/download/#node_exporter
 ```bash
 wget https://github.com/prometheus/node_exporter/releases/download/v1.7.0/node_exporter-1.7.0.linux-amd64.tar.gz
@@ -24,7 +24,7 @@ tar -xvf node_exporter-1.7.0.linux-amd64.tar.gz
 cd node_exporter-1.7.0.linux-amd64
 # move the binary
 sudo mv node_exporter /usr/local/bin
-```
+```    
 
 Make systemd service
 ```bash
@@ -42,7 +42,7 @@ ExecStart=/usr/local/bin/node_exporter
 [Install]
 WantedBy=multi-user.target
 EOF
-```
+```    
 
 it will enable all collector by default, if you want to enable just some of that you can add the `--collector.disable-defaults` and add the collector that you need, also the default node-exporter port is :9100 you can change it with  `--web.listen-address` flag 
 example:
@@ -69,7 +69,7 @@ ExecStart=/usr/local/bin/node_exporter --web.listen-address=:9110 --collector.di
 [Install]
 WantedBy=multi-user.target
 EOF
-```
+```    
 
 Reload daemon and enable the node_exporter service
 ```bash
@@ -77,12 +77,12 @@ sudo systemctl daemon-reload
 # enable and start
 sudo systemctl enable --now node_exporter.service
 sudo systemctl status node_exporter
-```
+```    
 
 After the service running without any problem, you can test it with curl to get the metrics
 ```bash
 curl localhost:9100/metrics
-```
+```    
 
 ## 2. Setup Prometheus
 
@@ -103,7 +103,7 @@ vda                 252:0    0   30G  0 disk
 vdb                 252:16   0   50G  0 disk
 └─vdb1              252:17   0   49G  0 part
   └─monitoring-data 253:0    0   49G  0 lvm  /data # this one
-```
+```    
 
 Make user and working directory for prometheus
 ```bash
@@ -112,7 +112,7 @@ mkdir -p /data/prometheus
 mkdir -p /etc/prometheus
 chwon -R prometheus:prometheus /data/prometheus
 chwon -R prometheus:prometheus /etc/prometheus
-```
+```    
 
 Download prometheus from https://prometheus.io/download/#prometheus
 ```bash
@@ -121,7 +121,7 @@ wget https://github.com/prometheus/prometheus/releases/download/v2.45.2/promethe
 tar -xvf prometheus-2.45.2.linux-amd64.tar.gz
 cd prometheus-2.45.2.linux-amd64
 mv prometheus promtool consoles/ consoles_library/ prometheus.yml /etc/prometheus
-```
+```    
 
 Add some job for prometheus
 ```bash
@@ -138,7 +138,7 @@ global:
     static_configs:
       - targets: ["localhost:9100"] # you can change to your vm address
 EOF
-```
+```    
 
 Create prometheus systemd service
 ```bash
@@ -165,12 +165,12 @@ ExecStart=/usr/local/bin/prometheus \
 [Install]
 WantedBy=multi-user.target
 EOF
-```
+```    
 
 The default retention time is 15d, `--web.enable-lifecycle` flag allow prometheus reload the config without restart, in case you made a change to your `prometheus.yml` , just reload it.
 ```bash
 curl -X POST http://localhost:9090/-/reload
-```
+```    
 
 Reload daemon and enable prometheus service
 ```bash
@@ -179,11 +179,12 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now prometheus.service
 # make sure service is running
 sudo systemctl status prometheus.service
-```
+```    
 
 ## 3. Exploring
 
-Now we have both node exporter and prometheus are running, so let's take a look to the prometheus dashboard. you can access your prometheus by browsing it at `http://your-address:9090`. The dashboard should be like this
+Now we have both node exporter and prometheus are running, so let's take a look to the prometheus dashboard. 
+You can access your prometheus by browsing it at `http://your-address:9090`. The dashboard should be like this
 
 ![prometheus-1](https://keyz.my.id/assets/images/prometheus-1.png)
 

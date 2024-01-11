@@ -3,7 +3,7 @@ author: "Luqinthar Sudarsono"
 title: "Simple VM Monitoring stack (node-exporter, and prometheus)"
 description : "Have you ever wondered if you want to make a monitoring system with free and easy to set up?"
 date: 2024-01-11T22:30:16+07:00
-tags: []
+tags: ["linux","monitoring"]
 showToc: true
 ---
 
@@ -16,11 +16,8 @@ Make user for node exporter systemd service
 ```bash
 sudo useradd node_exporter -s /bin/false
 ```
-
-
 Download the node exporter, you can check and download different version on https://prometheus.io/download/#node_exporter
 ```bash
-
 wget https://github.com/prometheus/node_exporter/releases/download/v1.7.0/node_exporter-1.7.0.linux-amd64.tar.gz
 # Extract
 tar -xvf node_exporter-1.7.0.linux-amd64.tar.gz
@@ -29,9 +26,7 @@ cd node_exporter-1.7.0.linux-amd64
 sudo mv node_exporter /usr/local/bin
 ```
 
-
 Make systemd service
-
 ```bash
 cat << EOF | sudo tee /etc/systemd/system/node_exporter.service
 [Unit]
@@ -51,7 +46,6 @@ EOF
 
 it will enable all collector by default, if you want to enable just some of that you can add the `--collector.disable-defaults` and add the collector that you need, also the default node-exporter port is :9100 you can change it with  `--web.listen-address` flag 
 example:
-
 ```bash
 cat << EOF | sudo tee /etc/systemd/system/node_exporter.service
 [Unit]
@@ -77,9 +71,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-
 Reload daemon and enable the node_exporter service
-
 ```bash
 sudo systemctl daemon-reload
 # enable and start
@@ -87,12 +79,10 @@ sudo systemctl enable --now node_exporter.service
 sudo systemctl status node_exporter
 ```
 
-
 After the service running without any problem, you can test it with curl to get the metrics
 ```bash
 curl localhost:9100/metrics
 ```
-
 
 ## 2. Setup Prometheus
 
@@ -115,9 +105,7 @@ vdb                 252:16   0   50G  0 disk
   └─monitoring-data 253:0    0   49G  0 lvm  /data # this one
 ```
 
-
 Make user and working directory for prometheus
-
 ```bash
 sudo useradd prometheus -s /bin/false
 mkdir -p /data/prometheus
@@ -126,9 +114,7 @@ chwon -R prometheus:prometheus /data/prometheus
 chwon -R prometheus:prometheus /etc/prometheus
 ```
 
-
 Download prometheus from https://prometheus.io/download/#prometheus
-
 ```bash
 wget https://github.com/prometheus/prometheus/releases/download/v2.45.2/prometheus-2.45.2.linux-amd64.tar.gz
 # extract
@@ -137,9 +123,7 @@ cd prometheus-2.45.2.linux-amd64
 mv prometheus promtool consoles/ consoles_library/ prometheus.yml /etc/prometheus
 ```
 
-
 Add some job for prometheus
-
 ```bash
 cat << EOF | sudo tee /etc/prometheus/prometheus.yml
 global:
@@ -156,9 +140,7 @@ global:
 EOF
 ```
 
-
 Create prometheus systemd service
-
 ```bash
 cat << EOF | sudo tee /etc/systemd/system/prometheus.service
 [Unit]
@@ -185,16 +167,12 @@ WantedBy=multi-user.target
 EOF
 ```
 
-
 The default retention time is 15d, `--web.enable-lifecycle` flag allow prometheus reload the config without restart, in case you made a change to your `prometheus.yml` , just reload it.
-
 ```bash
 curl -X POST http://localhost:9090/-/reload
 ```
 
-
 Reload daemon and enable prometheus service
-
 ```bash
 sudo systemctl daemon-reload
 # enable and start
@@ -202,7 +180,6 @@ sudo systemctl enable --now prometheus.service
 # make sure service is running
 sudo systemctl status prometheus.service
 ```
-
 
 ## 3. Exploring
 

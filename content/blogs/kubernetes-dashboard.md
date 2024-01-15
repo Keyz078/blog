@@ -17,7 +17,7 @@ First, we need to deploy metrics server before deploying kubernetes dashboard
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 ```
 
-if you have a problem that metrics-server's pod not running, probably because tls issue, so add `--kubelet-insecure-tls` section `args` of deployment, then rollout restart it.
+if you have a problem that metrics-server's pod not running, probably because tls issue, so add `--kubelet-insecure-tls` on `args` section of deployment, then rollout restart it.
 
 ## Kubernetes dashboard
 

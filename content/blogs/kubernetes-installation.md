@@ -70,7 +70,8 @@ sudo swapoff -a
 
 ```bash
 # init on the master-1 
-kubeadm init --control-plan-endpoint <endpoint>:<port> --pod-network-cidr 10.244.0.0/16
+kubeadm config images pull # if you want to pull image first
+kubeadm init --apiserver-advertise-address <address> --control-plan-endpoint <endpoint>:<port> --pod-network-cidr 10.244.0.0/16 --upload-certs
 
 # print join command
 kubeadm token create --print-join-command
@@ -84,10 +85,25 @@ kubeadm join --control-plan-endpoint <endpoint>:<port> --token <token> \
 kubeadm join --control-plane-endpoint <endpoint>:<port> --token <token> \
   --discovery-token-ca-cert-hash <hash>
 ```
-
-### 5. Last, but not least is bash completion
+### 5. Installing CNI
+I use calico for CNI
 
 ```bash
+# get manifest
+curl https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/calico.yaml -O
+
+# apply
+kubectl apply -f calico.yaml
+```
+
+### 6. Last, but not least is bash completion
+
+```bash
+# Kube config
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
 # Bash auto complete
 echo 'source <(kubectl completion bash)' >>~/.bashrc
 echo 'alias k=kubectl' >>~/.bashrc

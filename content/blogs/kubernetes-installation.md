@@ -111,3 +111,7 @@ echo 'complete -o default -F __start_kubectl k' >>~/.bashrc
 ```
 
 ### Happy kubectl~~!
+
+## Refference
+1. https://v1-28.docs.kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
+2. https://docs.tigera.io/calico/latest/getting-started/kubernetes/self-managed-onprem/onpremises

@@ -9,7 +9,7 @@ showToc: true
 
 ## Do it on all nodes
 
-### 1. Prepare iptables
+### 1. Prepare module and sysconfig
 
 ```bash
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
@@ -45,7 +45,7 @@ nano /etc/containerd/config.toml
 sudo systemctl restart containerd
 ```
 
-### 3. Prerpare kubeadm, kubelet, kubectl 
+### 3. Prepare kubeadm, kubelet, kubectl 
 
 ```bash
 # prepare packages on all nodes

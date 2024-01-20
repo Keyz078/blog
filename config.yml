@@ -63,9 +63,9 @@ params:
       imageWidth: 200
       imageHeight: 200
 
-  # homeInfoParams:
-  #   Title: "Halo, selamat datang \U0001F642"
-  #   Content: "Hai, kenal lebih dekat dengan saya, klik tautan dibawah ini. 👋"
+  homeInfoParams:
+    Title: "Luqinthar Sudarsono"
+    Content: "いらっしゃいませ"
 
   socialIcons:
     - name: email

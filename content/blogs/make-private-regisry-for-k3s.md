@@ -13,7 +13,7 @@ showToc: true
 
 ## Deploying registry
 
-#### 1 . Assuming you already have a k3s cluster, let's build the registry
+### 1 . Assuming you already have a k3s cluster, let's build the registry
 
 - create basic auth
     ```bash
@@ -41,7 +41,7 @@ showToc: true
     $ docker logs registry
     ```
 
-#### 2. Create self-signed ssl
+### 2. Create self-signed ssl
 
 You can use openssl to create a sans ssl for the registry, for example:
 
@@ -54,7 +54,7 @@ $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 -addext "subjectAltName=DNS:*.lab7.local,DNS:lab7.local,IP:10.13.13.100"
 ```
 
-#### 3. Setup the frontend
+### 3. Setup the frontend
 
 Many tools you can set for the frontend but in my case i'm going to use apache2 this time.
 
@@ -106,7 +106,7 @@ Many tools you can set for the frontend but in my case i'm going to use apache2 
     $ systemctl reload apache2
     ```
 
-#### 4. Testing
+### 4. Testing
 
 - Put the cert into docker path
 

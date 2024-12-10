@@ -13,7 +13,7 @@ showToc: true
 
 ## Deploying registry
 
-### 1 . Assuming you already have a k3s cluster, let's build the registry
+### 1. Assuming you already have a k3s cluster, let's build the registry
 
 - create basic auth
     ```bash
@@ -159,5 +159,10 @@ Many tools you can set for the frontend but in my case i'm going to use apache2 
     alpine: digest: sha256:2c8018e59b9ce43bd27955c844c85667409a96ecaa5180fa663cd6008ccdc663 size: 1989
     ```
 
+- View registry contents
+    ```bash
+    $ curl -ku admin:gladiators88 https://registry.lab7.local/v2/_catalog
+    {"repositories":["nginx"]}
+    ```
 
 Finally we have created a secure private registry, in the next article we will configure k3s to be able to pull to the private registry :D

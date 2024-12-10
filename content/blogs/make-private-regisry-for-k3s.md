@@ -13,14 +13,16 @@ showToc: true
 
 ## Deploying registry
 
-### 1. Assuming you already have a k3s cluster, let's build the registry
+### 1. Deploy registry container
+
+Assuming you already have a k3s cluster, let's build the registry
 
 - create basic auth
     ```bash
     $ mkdir -p ~/docker-registry/auth && cd ~/docker-registry
     $ htpassword admin gladiators88 > auth/htpasswd
     ```
-    > admin for the user, and gladiators for the password (username password)
+    > Usage: htpassword [username] [password]
 
 - deploying registry
 

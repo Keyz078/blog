@@ -1,9 +1,9 @@
 ---
 author: "Luqinthar Sudarsono"
-title: "Setup a simple private registry for k3s"
+title: "Setup a simple private registry for k8s"
 description : "So i'm using the default registry:v2 and apache2 for the frontend, also with self-sign ssl"
 date: 2024-12-11T02:26:37+07:00
-tags: ["kubernetes","docker","container","k3s","rancher"]
+tags: ["kubernetes","docker","container"]
 showToc: true
 ---
 
@@ -15,7 +15,7 @@ showToc: true
 
 ### 1. Deploy registry container
 
-Assuming you already have a k3s cluster, let's build the registry
+Assuming you already have a k8s cluster, let's build the registry
 
 - create basic auth
     ```bash
@@ -167,4 +167,4 @@ Many tools you can set for the frontend but in my case i'm going to use apache2 
     {"repositories":["nginx"]}
     ```
 
-Finally we have created a secure private registry, in the next article we will configure k3s to be able to pull to the private registry :D
+Finally we have created a secure private registry, in the next article we will configure k8s to be able to pull to the private registry :D

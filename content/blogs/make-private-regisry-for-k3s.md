@@ -20,9 +20,9 @@ Assuming you already have a k8s cluster, let's build the registry
 - create basic auth
     ```bash
     $ mkdir -p ~/docker-registry/auth && cd ~/docker-registry
-    $ htpassword admin gladiators88 > auth/htpasswd
+    $ htpassd admin -Bbn gladiators88 > auth/htpasswd
     ```
-    > Usage: htpassword [username] [password]
+    > Usage: htpasswd -Bbn [username] [password]
 
 - deploying registry
 

@@ -5,15 +5,15 @@ date: 2024-01-09T03:16:56+07:00
 description: "Hello"
 ---
 
-Hello! I'm Luqinthar Sudarsono, a tech enthusiast diving into the world of Linux, cloud computing, and scripting.
+Hello! I’m Luqinthar Sudarsono, a tech enthusiast passionate about Linux, cloud computing, and scripting.
 
-🖥️ Linux is my tech love – the command line, customization, and the open-source community are my playground.
+🖥️ Linux is my favorite workspace—its flexibility, command-line power, and open-source community inspire me every day.
 
-☁️ Cloud computing is where I explore endless possibilities, from optimizing infrastructure to embracing scalable solutions.
+☁️ In cloud computing, I explore scalable solutions and optimize infrastructure to solve real-world challenges.
 
-✍️ Scripting is my tool for automation and efficiency, simplifying tasks and streamlining processes.
+✍️ With scripting (Bash & Python), I automate tasks and streamline workflows for better efficiency.
 
-Join me on this tech journey! Let's connect, learn, and geek out together.
+Let’s connect, share knowledge, and grow together on this exciting tech journey!
 
 Luqinthar Sudarsono 🚀
 

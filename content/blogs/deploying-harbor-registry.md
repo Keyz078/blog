@@ -104,7 +104,7 @@ Run the prepare script
 $ ./prepare
 ```
 
-it will setting up and create docke-compose.yml from harbor.yml
+it will setting up and create docker-compose.yml from harbor.yml
 
 Next is bring up harbor
 
@@ -119,6 +119,7 @@ $ docker ps -a | grep -i harbor
 $ docker logs <harbor container registry name>
 ```
 
+### Setting webserver
 For the apache2 site, you can cp from the registry we made earlier.
 
 ```bash
@@ -154,3 +155,34 @@ Enable site
 $ a2ensite harbor-registry.conf
 $ systemctl reload apache2
 ```
+
+## Testing
+
+### Login, push and pull
+
+login to harbor
+
+```bash
+$ docker login https://harbor.lab7.local
+Username: admin
+Password: 
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credential-stores
+
+Login Succeeded
+```
+
+push image
+
+```bash
+$ docker tag nginx:alpine harbor.lab7.local/nginx:alpine
+$ docker push harbor.lab7.local/nginx:alpine
+```
+
+Open harbor ui on your browser, login and see if the image successfuly pushed
+
+![](https://keyz.my.id/assets/images/harbor-push-image.png)
+
+
+There you go :D, you also can make a proxy-cache registry on harbor, for kubernetes or k3s pulling from harbor is just the same way as simple registry, you can check this [article](https://keyz.my.id/blogs/connecting-k3s-to-private-registry/)

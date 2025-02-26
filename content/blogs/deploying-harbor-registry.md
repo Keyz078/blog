@@ -87,12 +87,12 @@ http:
   # enable strong ssl ciphers (default: false)
   # strong_ssl_ciphers: false
 
-harbor_admin_password: gladiators88 # this line
+harbor_admin_password: <YOUR_PASSWORD> # this line
 
 # Harbor DB configuration
 database:
   # The password for the root user of Harbor DB. Change this before any production use.
-  password: gladiators88 # this line
+  password: <YOUR_PASSWORD> # this line
 
 ```
 

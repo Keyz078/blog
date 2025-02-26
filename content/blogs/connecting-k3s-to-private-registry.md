@@ -51,7 +51,7 @@ configs:
   "registry.lab7.local":
     auth:
       username: admin
-      password: gladiators88
+      password: <YOUR_PASSWORD>
     tls:
       ca_file: "/certs/registry.lab7.local/server.crt"
 ```

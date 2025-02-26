@@ -20,7 +20,7 @@ Assuming you already have a kubernetes cluster, let's build the registry
 - create basic auth
     ```bash
     $ mkdir -p ~/docker-registry/auth && cd ~/docker-registry
-    $ htpasswd -Bbn admin gladiators88 > auth/htpasswd
+    $ htpasswd -Bbn admin <YOUR_PASSWORD> > auth/htpasswd
     ```
     > Usage: htpasswd -Bbn [username] [password]
 
@@ -163,7 +163,7 @@ Many tools you can set for the frontend but in my case i'm going to use apache2 
 
 - View registry contents
     ```bash
-    $ curl -ku admin:gladiators88 https://registry.lab7.local/v2/_catalog
+    $ curl -ku admin:<YOUR_PASSWORD> https://registry.lab7.local/v2/_catalog
     {"repositories":["nginx"]}
     ```
 

@@ -24,7 +24,7 @@ vim /etc/mysql/mysql.conf.d/mysqld.cnf => bind-address to 0.0.0.0
 
 ```bash
 mysql -u root 
-CREATE USER 'wp-user'@'%' IDENTIFIED BY 'gladiators88'; GRANT ALL PRIVILEGES ON *.* TO 'wp-user'@'%' WITH GRANT OPTION;
+CREATE USER 'wp-user'@'%' IDENTIFIED BY '<YOUR_PASSWORD>'; GRANT ALL PRIVILEGES ON *.* TO 'wp-user'@'%' WITH GRANT OPTION;
 GRANT ALL PRIVILEGES ON *.* TO 'wp-user'@'%';
 ```
 
@@ -160,7 +160,7 @@ spec:
         - name: WORDPRESS_DB_USER
           value: wp-user
         - name: WORDPRESS_DB_PASSWORD
-          value: gladiators88
+          value: <YOUR_PASSWORD>
         ports:
         - containerPort: 80
           name: wordpress

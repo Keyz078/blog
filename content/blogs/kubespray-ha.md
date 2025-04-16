@@ -9,7 +9,7 @@ showToc: true
 
 ## Topology:
 
-![](https://keyz.my.id/assets/images/topologi.png)
+![](https://blog.keyz.my.id/assets/images/topologi.png)
 
 > Loadbalancer Haproxy with keepalived as kube api server for the cluster, which provide High availability. The Loadbalancer machine gets virtual IP from keepalived to keep kube api server endpoints always availabilty, then the haproxy allow us to provide loadbalancing for each master node api server.
 > 

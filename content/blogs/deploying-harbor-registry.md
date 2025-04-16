@@ -182,7 +182,7 @@ $ docker push harbor.lab7.local/nginx:alpine
 
 Open harbor ui on your browser, login and see if the image successfuly pushed
 
-![](https://keyz.my.id/assets/images/harbor-push-image.png)
+![](https://blog.keyz.my.id/assets/images/harbor-push-image.png)
 
 
-There you go :D, you also can make a proxy-cache registry on harbor, for kubernetes or k3s pulling from harbor is just the same way as simple registry, you can check this [article](https://keyz.my.id/blogs/connecting-k3s-to-private-registry/)
+There you go :D, you also can make a proxy-cache registry on harbor, for kubernetes or k3s pulling from harbor is just the same way as simple registry, you can check this [article](https://blog.keyz.my.id/blogs/connecting-k3s-to-private-registry/)

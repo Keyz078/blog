@@ -73,7 +73,7 @@ Finally access the kubernetes dashboard through your nodePort and login with the
 
 ### Result 
 
-![kubernetes-dashboard](https://blog.keyz.my.id/assets/images/kubernetes-dashboard.png)
+![kubernetes-dashboard](/imageskubernetes-dashboard.png)
 
 ## Refference
 

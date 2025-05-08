@@ -9,7 +9,7 @@ showToc: true
 
 ## Topology
 
-![](https://blog.keyz.my.id/assets/images/registry-topology-new.png)
+![](/imagesregistry-topology-new.png)
 
 ## Deploying registry
 

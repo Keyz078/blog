@@ -11,8 +11,25 @@ tags:
 ---
 # Halo duniaa
 
-Wibuu  
+Wibuu
 
-![](/images/pso20250325_013019_013.jpg)
+### List-1
+
+*   a
+    
+*   b
+    
+*   c
+    
+
+###   
+List-2
+
+1.  a
+    
+2.  b
+    
+3.  c
+    
 
 ![](/images/pso20250325_012953_011.jpg)

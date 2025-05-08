@@ -13,7 +13,7 @@ media:
 content:
   - name: blogs
     label: Blogs
-    type: content
+    type: collection
     path: content/blogs
     filename: '{primary}.md'
     view:

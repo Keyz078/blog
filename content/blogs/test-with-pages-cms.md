@@ -1,10 +1,8 @@
 ---
+author: Luqinthar Sudarsono
 title: TEST with Pages CMS
-draft: true
+description: Test broo
 date: 2025-05-09T00:58:00Z
-tag:
-  - Tech
+tags: kube,apalah
+showToc: true
 ---
-# Halooo
-
-test

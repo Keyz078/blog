@@ -57,4 +57,16 @@ content:
       
       - name: body
         label: Body
-        type: markdown  # Ubah jadi markdown biar lebih kompatibel dengan Hugo
+        type: rich
+
+# Custom output formatting
+output:
+  format: |
+    ---
+    author: "{{ .author }}"
+    title: "{{ .title }}"
+    description: "{{ .description }}"
+    date: {{ .date }}
+    tags: [{{ range $index, $tag := .tags }}{{ if $index }}, {{ end }} "{{ $tag }}"{{ end }}]
+    showToc: {{ .showToc }}
+    ---

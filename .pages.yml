@@ -13,11 +13,11 @@ media:
 content:
   - name: blogs
     label: Blogs
-    type: collection
+    type: content
     path: content/blogs
     filename: '{primary}.md'
     view:
-      fields: [ author, title, draft, date ]
+      fields: [ author, title, description, date, showToc, tags, body ]
     fields:
       - name: author
         label: Author
@@ -38,8 +38,8 @@ content:
         label: "Table Of Content"
         type: boolean
         default: true
-      - name: tag
-        label: Tag
+      - name: tags
+        label: Tags
         type: select
         options:
           creatable: true

@@ -1,0 +1,43 @@
+media:
+  - name: images
+    label: Images
+    input: content/assets/images
+    output: /images
+    categories: [ image ]
+  - name: certs
+    label: Certs
+    input: content/assets/certs
+    output: /certs
+    categories: [ cert ]
+content:
+  - name: blogs
+    label: Blogs
+    type: collection
+    path: content/blogs
+    filename: '{primary}.md'
+    view:
+      fields: [ title, draft, date ]
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: draft
+        label: Draft
+        type: boolean
+        default: true
+      - name: date
+        label: Date
+        type: date
+        options:
+          time: true
+          format: yyyy-MM-dd'T'HH:mm:ssXXX
+      - name: tag
+        label: Tag
+        type: select
+        options:
+          creatable: true
+          multiple: true
+          values: [ Tech, News, Sports ]
+      - name: body
+        label: Body
+        type: rich-text

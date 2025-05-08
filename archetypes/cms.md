@@ -1,10 +1,18 @@
 ---
-author: {{ .Params.author | default "Luqinthar Sudarsono" }}
-title: {{ .Params.title | default "" }}
-description: {{ .Params.description | default "" }}
+
+author: "{{ .Params.author }}"
+title: "{{ .Params.title }}"
+description: "{{ .Params.description }}"
 date: {{ .Date }}
-showToc: {{ .Params.showToc | default true }}
+showToc: {{ .Params.showToc }}
 tags:
-{{ range .Params.tags }}  - {{ . }}
-{{ end }}
+{{- if .Params.tags }}
+{{- range .Params.tags }}
+
+* "{{ . }}"
+  {{- end }}
+  {{- else }}
+  \[]
+  {{- end }}
+
 ---

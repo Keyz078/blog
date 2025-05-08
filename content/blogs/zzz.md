@@ -11,6 +11,8 @@ tags:
 ---
 # Halo duniaa
 
-Wibuu
+Wibuu  
+
+![](/images/pso20250325_013019_013.jpg)
 
 ![](/images/pso20250325_012953_011.jpg)

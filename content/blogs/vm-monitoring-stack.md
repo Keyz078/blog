@@ -188,15 +188,15 @@ Now we have both node exporter and prometheus are running, so let's take a look 
 You can access your prometheus by browsing it at `http://your-address:9090`    
 The dashboard should be like this
 
-![prometheus-1](/imagesprometheus-1.png)
+![prometheus-1](/images/prometheus-1.png)
 
 If we go to `status > targets` it show all the job we added
 
-![prometheus-2](/imagesprometheus-2.png)
+![prometheus-2](/images/prometheus-2.png)
 
 So, how can we know the metrics was stored? go back to `graph > browser icon > browse some metrics` 
 
-![prometheus-3](/imagesprometheus-3.png)
+![prometheus-3](/images/prometheus-3.png)
 
 Also you can do PromQL query on the query input for example like this
 
@@ -206,7 +206,7 @@ node_filesystem_size_bytes{instance="localhost:9100"}
 
 It returns query result as table and graph
 
-![prometheus-4](/imagesprometheus-4.png)
+![prometheus-4](/images/prometheus-4.png)
 
 
 Thats it, simple vm monitoring with Node Exporter and Prometheus allow you to keep an eye on your vms 

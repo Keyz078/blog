@@ -9,7 +9,7 @@ showToc: true
 
 ## Topology
 
-![](/imagesregistry-topology-new.png)
+![](/images/registry-topology-new.png)
 
 ## Deploying registry
 

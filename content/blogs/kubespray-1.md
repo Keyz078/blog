@@ -163,4 +163,4 @@ ansible-playbook -i inventory/calico-online/hosts.yaml --become --become-user=ro
 
 ### Result
 
-![Alt text](/imageskubespray.png)
+![Alt text](/images/kubespray.png)

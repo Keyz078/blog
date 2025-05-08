@@ -9,6 +9,7 @@ media:
     input: content/assets/certs
     output: /certs
     categories: [ cert ]
+
 content:
   - name: blogs
     label: Blogs
@@ -38,22 +39,22 @@ content:
         type: date
         options:
           time: true
-          format: "yyyy-MM-dd'T'HH:mm:ssXXX"  # Sesuai format yang kamu inginkan
+          format: "yyyy-MM-dd'T'HH:mm:ssXXX"  # Sesuaikan format yang kamu inginkan
+          timezone: "Asia/Jakarta"  # Sesuaikan dengan timezone kamu (WIB)
     
       - name: tags
         label: Tags
-        type: list   # Pastikan tipe adalah list, bukan string atau select
+        type: list
         options:
           creatable: true
           multiple: true
           values: []
-    
+
       - name: showToc
         label: Show Table of Contents
         type: boolean
         default: true
-        
+      
       - name: body
         label: Body
-        type: rich-text
-
+        type: markdown  # Ubah jadi markdown biar lebih kompatibel dengan Hugo

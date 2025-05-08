@@ -1,7 +1,7 @@
 media:
   - name: images
     label: Images
-    input: content/assets/images
+    input: static/images
     output: /images
     categories: [ image ]
   - name: certs

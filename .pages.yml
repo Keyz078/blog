@@ -16,33 +16,33 @@ content:
     path: content/blogs
     filename: '{primary}.md'
     view:
-      fields: [ author, title, description, date, tags, showToc ]
+      fields: [ author, title, description, date, tags, showToc, body ]
     fields:
       - name: author
         label: Author
         type: string
-        default: "\"Luqinthar Sudarsono\"" # Menggunakan tanda kutip ganda untuk escape
+        default: "Luqinthar Sudarsono"  # Tanpa escape quote
     
       - name: title
         label: Title
         type: string
-        default: "\"\""
+        default: ""
     
       - name: description
         label: Description
         type: string
-        default: "\"\""
+        default: ""
     
       - name: date
         label: Date
         type: date
         options:
           time: true
-          format: "yyyy-MM-dd'T'HH:mm:ssXXX" # Timezone sesuai +07:00
+          format: "yyyy-MM-dd'T'HH:mm:ssXXX"  # Sesuai format yang kamu inginkan
     
       - name: tags
         label: Tags
-        type: list
+        type: list   # Pastikan tipe adalah list, bukan string atau select
         options:
           creatable: true
           multiple: true

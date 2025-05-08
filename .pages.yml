@@ -6,7 +6,7 @@ media:
     categories: [ image ]
   - name: certs
     label: Certs
-    input: content/assets/certs
+    input: static/certs
     output: /certs
     categories: [ cert ]
 

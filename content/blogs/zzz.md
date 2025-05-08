@@ -9,27 +9,28 @@ tags:
   - docker
   - kubernetes
 ---
-# Halo duniaa
+# Halo duniaa wibuu
 
-Wibuu
+## Test list
 
-### List-1
+### ini head 3 dengan list:
 
-*   a
+*   aaa
     
-*   b
+*   bbb
     
-*   c
+*   ccc
     
 
-###   
-List-2
+### ini head 3 dengan numbering:
 
-1.  a
+1.  aaa
     
-2.  b
+2.  bbb
     
-3.  c
+3.  ccc
     
+
+> ini Contoh gambar pemanis
 
 ![](/images/pso20250325_012953_011.jpg)

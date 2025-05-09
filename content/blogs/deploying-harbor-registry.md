@@ -1,12 +1,16 @@
 ---
-author: "Luqinthar Sudarsono"
-title: "Deploying Harbor Registry"
-description : "Container registry with Web Ui?, yep let's try Harbor :D"
+author: Luqinthar Sudarsono
+title: Deploying Harbor Registry
+description: Container registry with Web Ui?, yep let's try Harbor :D
 date: 2024-12-18T10:05:00+07:00
-tags: ["docker","kubernetes","container","harbor"]
 showToc: true
+tocopen: true
+tags:
+  - docker
+  - kubernetes
+  - container
+  - harbor
 ---
-
 ## Preparation
 
 ### Get harbor offline/online
@@ -93,7 +97,6 @@ harbor_admin_password: <YOUR_PASSWORD> # this line
 database:
   # The password for the root user of Harbor DB. Change this before any production use.
   password: <YOUR_PASSWORD> # this line
-
 ```
 
 > You can configure the other lines or just let it default
@@ -120,6 +123,7 @@ $ docker logs <harbor container registry name>
 ```
 
 ### Setting webserver
+
 For the apache2 site, you can cp from the registry we made earlier.
 
 ```bash
@@ -183,6 +187,5 @@ $ docker push harbor.lab7.local/nginx:alpine
 Open harbor ui on your browser, login and see if the image successfuly pushed
 
 ![](/images/harbor-push-image.png)
-
 
 There you go :D, you also can make a proxy-cache registry on harbor, for kubernetes or k3s pulling from harbor is just the same way as simple registry, you can check this [article](https://blog.keyz.my.id/blogs/connecting-k3s-to-private-registry/)

@@ -10,6 +10,9 @@ tags:
   - kubernetes
   - container
   - harbor
+cover:
+  image: /images/pso2ngs.png
+  hiddenInList: true
 ---
 ## Preparation
 

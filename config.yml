@@ -129,3 +129,6 @@ markup:
     guessSyntax: true
     lineNos: true
     style: nordic
+  goldmark:
+    renderer:
+      unsafe: true

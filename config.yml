@@ -23,8 +23,6 @@ params:
   images: "/images/profile.jpg"
   defaultTheme: auto
   disableThemeToggle: false
-  # TocOpen: true
-  tocopen: false
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true
@@ -32,10 +30,9 @@ params:
   ShowCodeCopyButtons: true
   ShowWordCount: true
   ShowRssButtonInSectionTermList: true
-  UseHugoToc: true
+  UseHugoToc: false
   disableSpecial1stPost: false
   disableScrollToTop: false
-  comments: true
   hidemeta: false
   hideSummary: false
   showtoc: false

@@ -23,7 +23,8 @@ params:
   images: "/images/profile.jpg"
   defaultTheme: auto
   disableThemeToggle: false
-  TocOpen: true
+  # TocOpen: true
+  tocopen: false
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true

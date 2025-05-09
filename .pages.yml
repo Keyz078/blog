@@ -38,6 +38,10 @@ content:
         label: "Table Of Content"
         type: boolean
         default: true
+      - name: tocopen
+        label: "Table of Content Open (default: false)"
+        type: boolean
+        default: false
       - name: tags
         label: Tags
         type: select

@@ -4,7 +4,7 @@ title: "Phantasy Star Onlne 2: New Genesis"
 description: Game MMORPG yang sudah end game??
 date: 2025-05-09T16:43:00+07:00
 showToc: true
-tocopen: true
+tocopen: false
 tags:
   - game
 cover:

@@ -45,9 +45,6 @@ content:
             label: Hidden in List
             type: boolean
             default: true
-      - name: body
-        label: Body
-        type: rich-text
       - name: showToc
         label: "Table Of Content"
         type: boolean
@@ -63,4 +60,7 @@ content:
           creatable: true
           multiple: true
           values: [ linux, kubernetes, docker ]
+      - name: body
+        label: Body
+        type: rich-text
 

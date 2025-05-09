@@ -52,3 +52,14 @@ content:
       - name: body
         label: Body
         type: rich-text
+      - name: cover
+        label: Cover
+        type: object
+        fields:
+          - name: image
+            label: Image
+            type: image
+          - name: hiddenInList
+            label: Hidden in List
+            type: boolean
+            default: true

@@ -3,7 +3,7 @@ author: Luqinthar Sudarsono
 title: Deploying Harbor Registry
 description: Container registry with Web Ui?, yep let's try Harbor :D
 date: 2024-12-18T10:05:00+07:00
-showToc: true
+showToc: false
 tocopen: true
 tags:
   - docker

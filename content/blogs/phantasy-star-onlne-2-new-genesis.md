@@ -9,7 +9,7 @@ tags:
   - game
 cover:
   image: /images/pso2ngs.png
-  hiddenInList: true
+  hiddenInList: false
 ---
 ## **Pendahuluan**
 

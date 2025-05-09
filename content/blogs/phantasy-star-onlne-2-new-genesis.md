@@ -8,7 +8,7 @@ tocopen: true
 tags:
   - game
 cover:
-  image: /images/pso2ngs.png
+  image: images/pso2ngs.png
   hiddenInList: true
 ---
 ## **Pendahuluan**

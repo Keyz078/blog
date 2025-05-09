@@ -17,7 +17,7 @@ content:
     path: content/blogs
     filename: '{primary}.md'
     view:
-      fields: [ author, title, description, date ]
+      fields: [ author, title, date ]
     fields:
       - name: author
         label: Author

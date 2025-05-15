@@ -24,5 +24,5 @@ Luqinthar Sudarsono 🚀
 
 ### Certificates
 
-1. [CCNA: Switching, Routing, and Wireless Essentials](https://www.credly.com/badges/41dc68a5-bd31-48f7-aca3-ce1029a70847)
-2. [LFCS: Linux Foundation Certified Linux Administrator](/certs/luqinthar-sudarsono-0be4d18a-ba7a-45a1-b990-4d73c15e5634-certificate.pdf)
+1. [CCNA: Switching, Routing, and Wireless Essentials](https://www.credly.com/badges/41dc68a5-bd31-48f7-aca3-ce1029a70847/public_url)
+2. [LFCS: Linux Foundation Certified Linux Administrator](https://www.credly.com/badges/e33f1ce0-d447-4386-be57-f11665bdca73/public_url)

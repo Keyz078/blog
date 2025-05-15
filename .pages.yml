@@ -4,11 +4,6 @@ media:
     input: static/images
     output: /images
     categories: [ image ]
-  - name: certs
-    label: Certs
-    input: static/certs
-    output: /certs
-    categories: [ cert ]
 
 content:
   - name: blogs

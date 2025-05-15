@@ -8,4 +8,8 @@ cover:
   hiddenInList: true
 showToc: true
 tocopen: false
+tags:
+  - linux
+  - sysadmin
+  - repository
 ---

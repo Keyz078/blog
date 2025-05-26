@@ -124,7 +124,7 @@ configMapGenerator:
 kubectl kustomize .
 ```
 
-This will generate a ConfigMap using the data from `nginx.conf`.
+<p style="text-align: justify">This will generate a ConfigMap using the data from <code>nginx.conf</code>.</p>
 
 ```bash
 apiVersion: v1
@@ -145,7 +145,7 @@ metadata:
   name: nginx-config-59k264tbg4
 ```
 
-it's also work for `secretGenerator`
+<p style="text-align: justify">it's also work for <code>secretGenerator</code></p>
 
 ```bash
 echo "admin:admin123" > credential
@@ -164,7 +164,7 @@ secretGenerator:
 kubectl kustomize .
 ```
 
-this will generate `Opaque` type secret and `base64` encoded
+<p style="text-align: justify">this will generate <code>Opaque</code> type secret and <code>base64</code> encoded</p>
 
 ```yaml
 apiVersion: v1
@@ -205,6 +205,10 @@ spec:
 ```yaml
 resources:
   - deployment.yaml
+images:
+- name: dummy
+  newName: my-registry/my-image
+  newTag: my-tag
 configMapGenerator:
   - name: nginx-config
     files:
@@ -217,7 +221,7 @@ patches:
 kubectl kustomize .
 ```
 
-This will generate a Deployment manifest with the ConfigMap volume and mount already included.
+<p style="text-align: justify">This will generate a Deployment manifest with the ConfigMap volume and mount already included.</p>
 
 ```yaml
 apiVersion: v1
@@ -254,7 +258,7 @@ spec:
         app: my-app
     spec:
       containers:
-      - image: dummy
+      - image: my-registry/my-image:my-tag
         name: my-container
         volumeMounts:
         - mountPath: /etc/nginx/nginx.conf
@@ -264,4 +268,169 @@ spec:
       - configMap:
           name: nginx-config-59k264tbg4
         name: nginx-config
+```
+
+### Bases & Overlays
+
+<p style="text-align: justify">Kustomize separates config into bases and overlays. Bases hold reusable resources, while overlays build on them with extra changes. Bases can be local or remote and don’t depend on overlays. Based on what we have done before, now we will use bases and overlays to make it more structured.</p><p style="text-align: justify">example:</p>
+
+```bash
+.
+├── base
+│   ├── deployment.yaml
+│   ├── kustomization.yaml
+│   └── service.yaml
+└── overlays
+    └── dev
+        ├── kustomization.yaml
+        ├── nginx.conf
+        └── patches
+            └── cm-patch.yaml
+```
+
+<p style="text-align: justify">The <strong>base</strong> holds the original template manifests, and the <strong>overlays</strong> contains the changes or patches applied to them, heres some new manifest.</p><p style="text-align: justify"><strong>base/service.yaml</strong></p>
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: my-app
+```
+
+<p style="text-align: justify"><strong>base/kustomization.yaml</strong></p>
+
+```yaml
+resources:
+  - deployment.yaml
+  - service.yaml
+```
+
+**overlays/dev/kustomization.yaml**
+
+```yaml
+namePrefix: dev-
+resources:
+  - ../../base # reffering to base kustomization
+images:
+- name: dummy
+  newName: nginx
+  newTag: alpine
+configMapGenerator:
+  - name: nginx-config
+    files:
+      - nginx.conf
+patches:
+  - path: cm-patch.yaml
+  - path: nodeport.yaml
+```
+
+**overlays/dev/patches/nodeport.yaml**
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app
+spec:
+  selector:
+    app: my-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 31232
+  type: NodePort
+```
+
+The rest still using the previous manifest
+
+```yaml
+kubectl kustomize .
+```
+
+```yaml
+apiVersion: v1
+data:
+  nginx.conf: |
+    events {}
+
+    http {
+        server {
+            listen 80;
+            location / {
+                return 200 "Hello from ConfigMap Nginx!\n";
+            }
+        }
+    }
+kind: ConfigMap
+metadata:
+  name: dev-nginx-config-mb9bhc6c66
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dev-my-app
+spec:
+  ports:
+  - nodePort: 32323
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: my-app
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: my-app
+  name: dev-my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - image: nginx:alpine
+        name: my-container
+        volumeMounts:
+        - mountPath: /etc/nginx/nginx.conf
+          name: nginx-config
+          subPath: nginx.conf
+      volumes:
+      - configMap:
+          name: dev-nginx-config-mb9bhc6c66
+        name: nginx-config
+```
+
+<p style="text-align: justify">You can also apply directly with the following command</p>
+
+```bash
+kubectl apply -k ./ # apply
+kubectl get -k ./ # get component
+```
+
+```bash
+NAME                                    DATA   AGE
+configmap/dev-nginx-config-mb9bhc6c66   1      6s
+
+NAME                 TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+service/dev-my-app   NodePort   10.43.194.245   <none>        80:32323/TCP   6s
+
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/dev-my-app   1/1     1            1           6s
 ```

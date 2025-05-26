@@ -10,4 +10,4 @@ tocopen: false
 tags:
   - kubernetes
 ---
-<p style="text-align: justify">Kubernetes manifests can get messy fast—especially when managing multiple environments. <strong>Kustomize</strong> helps you keep things clean by letting you customize YAML files without copying or rewriting them. In this article, we’ll explore how Kustomize simplifies and streamlines Kubernetes configuration.</p>
+<p style="text-align: justify">Kubernetes manifests can get messy fast, especially when managing multiple environments. <strong>Kustomize</strong> helps you keep things clean by letting you customize YAML files without copying or rewriting them. In this article, we’ll explore how Kustomize simplifies and streamlines Kubernetes configuration.</p>

@@ -44,7 +44,7 @@ spec:
     spec:
       containers:
       - image: dummy
-        name: dummy
+        name: my-container
         resources: {} # this
 status: {} # this
 ```
@@ -57,7 +57,7 @@ Create kustomization.yaml file
 resources:
 - deployment.yaml
 images:
-- name: dummy
+- name: dummy # this must be match the image in the deployment.yaml
   newName: my-registry/my-image
   newTag: my-tag
 ```
@@ -69,3 +69,29 @@ kubectl kustomize .
 ```
 
 The deployment manifest will be updated, and the image name and tag will change according to the kustomization file.
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: my-app
+  name: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - image: my-registry/my-image:my-tag
+        name: my-container
+```
+
+### Generators
+
+some text here

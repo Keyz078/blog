@@ -96,6 +96,8 @@ spec:
 
 Kustomize also supports generators, such as **secretGenerator** and **configMapGenerator**, which creates resources from the input file(s).
 
+**nginx.conf**
+
 ```bash
 events {}
 
@@ -108,6 +110,8 @@ http {
     }
 }
 ```
+
+**kustomization.yaml**
 
 ```yaml
 configMapGenerator:
@@ -147,6 +151,8 @@ it's also work for `secretGenerator`
 echo "admin:admin123" > credential
 ```
 
+**kustomization.yaml**
+
 ```yaml
 secretGenerator:
   - name: admin-secret
@@ -168,4 +174,94 @@ kind: Secret
 metadata:
   name: admin-secret-kh798fmhhc
 type: Opaque
+```
+
+### Patches
+
+<p style="text-align: justify">Patches in Kustomize are used to modify or override specific fields in existing resources without changing the original files. For example, we can use a patch to add a ConfigMap volume and mount it into the base Deployment without modifying the original file.</p><p style="text-align: justify"><strong>cm-patch.yaml</strong></p>
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  template:
+    spec:
+      volumes:
+        - name: nginx-config
+          configMap:
+             name: nginx-config # must be match with the name from configMapGenerator
+      containers:
+        - name: my-container
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+```
+
+**kustomization.yaml**
+
+```yaml
+resources:
+  - deployment.yaml
+configMapGenerator:
+  - name: nginx-config
+    files:
+      - nginx.conf
+patches:
+  - path: cm-patch.yaml
+```
+
+```bash
+kubectl kustomize .
+```
+
+This will generate a Deployment manifest with the ConfigMap volume and mount already included.
+
+```yaml
+apiVersion: v1
+data:
+  nginx.conf: |
+    events {}
+
+    http {
+        server {
+            listen 80;
+            location / {
+                return 200 "Hello from ConfigMap Dev Nginx!\n";
+            }
+        }
+    }
+kind: ConfigMap
+metadata:
+  name: nginx-config-59k264tbg4
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: my-app
+  name: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - image: dummy
+        name: my-container
+        volumeMounts:
+        - mountPath: /etc/nginx/nginx.conf
+          name: nginx-config
+          subPath: nginx.conf
+      volumes:
+      - configMap:
+          name: nginx-config-59k264tbg4
+        name: nginx-config
 ```

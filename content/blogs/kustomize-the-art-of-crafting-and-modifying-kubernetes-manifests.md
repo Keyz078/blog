@@ -12,9 +12,7 @@ tags:
 ---
 <p style="text-align: justify">Kubernetes manifests can get messy fast, especially when managing multiple environments. <strong>Kustomize</strong> helps you keep things clean by letting you customize YAML files without copying or rewriting them. In this article, we’ll explore how Kustomize simplifies and streamlines Kubernetes configuration.</p>
 
-## How to use?
-
-### Customizing your manifest
+## What does Kustomize do?
 
 let's say you already have a template for deployment, or you can generate sample deployment yaml from this command
 
@@ -50,3 +48,24 @@ spec:
         resources: {} # this
 status: {} # this
 ```
+
+### Change image
+
+Create kustomization.yaml file
+
+```
+resources:
+- deployment.yaml
+images:
+- name: dummy
+  newName: my-registry/my-image
+  newTag: my-tag
+```
+
+The **resources** section lists the files or manifests to customize, and the **images** section updates the deployment image.
+
+```
+kubectl kustomize .
+```
+
+The deployment manifest will be updated, and the image name and tag will change according to the kustomization file.

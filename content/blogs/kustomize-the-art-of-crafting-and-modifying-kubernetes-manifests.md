@@ -136,7 +136,7 @@ data:
         server {
             listen 80;
             location / {
-                return 200 "Hello from ConfigMap Dev Nginx!\n";
+                return 200 "Hello from ConfigMap Nginx!\n";
             }
         }
     }

@@ -94,7 +94,7 @@ spec:
 
 ### Generators
 
-<p style="text-align: justify">Kustomize also supports generators, such as <code>secretGenerator</code> and <code>configMapGenerator</code>, which creates resources from the input file(s).</p>
+Kustomize also supports generators, such as **secretGenerator** and **configMapGenerator**, which creates resources from the input file(s).
 
 ```bash
 events {}

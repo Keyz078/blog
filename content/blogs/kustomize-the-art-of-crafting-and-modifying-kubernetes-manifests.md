@@ -323,13 +323,14 @@ images:
 - name: dummy
   newName: nginx
   newTag: alpine
+
 configMapGenerator:
   - name: nginx-config
     files:
       - nginx.conf
 patches:
-  - path: cm-patch.yaml
-  - path: nodeport.yaml
+  - path: patches/cm-patch.yaml
+  - path: patches/nodeport.yaml
 ```
 
 **overlays/dev/patches/nodeport.yaml**

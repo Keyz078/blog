@@ -11,3 +11,42 @@ tags:
   - kubernetes
 ---
 <p style="text-align: justify">Kubernetes manifests can get messy fast, especially when managing multiple environments. <strong>Kustomize</strong> helps you keep things clean by letting you customize YAML files without copying or rewriting them. In this article, we’ll explore how Kustomize simplifies and streamlines Kubernetes configuration.</p>
+
+## How to use?
+
+### Customizing your manifest
+
+let's say you already have a template for deployment, or you can generate sample deployment yaml from this command
+
+```
+kubectl create deployment <your deployment name> --image dummy --dry-run=client -o yaml
+```
+
+this will generate a deployment yaml, then you can delete the following lines
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null # this
+  labels:
+    app: my-app
+  name: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  strategy: {} # this
+  template:
+    metadata:
+      creationTimestamp: null # this
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - image: dummy
+        name: dummy
+        resources: {} # this
+status: {} # this
+```

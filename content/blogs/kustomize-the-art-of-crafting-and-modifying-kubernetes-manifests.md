@@ -14,7 +14,7 @@ tags:
 
 ## What does Kustomize do?
 
-let's say you already have a template for deployment, or you can generate sample deployment yaml from this command
+<p style="text-align: justify">let's say you already have a template for deployment, or you can generate sample deployment yaml from this command</p>
 
 ```
 kubectl create deployment <your deployment name> --image dummy --dry-run=client -o yaml
@@ -62,13 +62,13 @@ images:
   newTag: my-tag 
 ```
 
-The **resources** section lists the files or manifests to customize, and the **images** section updates the deployment image.
+<p style="text-align: justify">The <strong>resources</strong> section lists the files or manifests to customize, and the <strong>images</strong> section updates the deployment image.</p>
 
 ```
 kubectl kustomize .
 ```
 
-The deployment manifest will be updated, and the image name and tag will change according to the kustomization file.
+<p style="text-align: justify">The deployment manifest will be updated, and the image name and tag will change according to the kustomization file.</p>
 
 ```yaml
 apiVersion: apps/v1

@@ -22,7 +22,7 @@ kubectl create deployment <your deployment name> --image dummy --dry-run=client 
 
 this will generate a deployment yaml, then you can delete the following lines
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -46,20 +46,20 @@ spec:
       - image: dummy
         name: my-container
         resources: {} # this
-status: {} # this
+status: {} # this 
 ```
 
 ### Change image
 
 Create kustomization.yaml file
 
-```
+```yaml
 resources:
 - deployment.yaml
 images:
 - name: dummy # this must be match the image in the deployment.yaml
   newName: my-registry/my-image
-  newTag: my-tag
+  newTag: my-tag 
 ```
 
 The **resources** section lists the files or manifests to customize, and the **images** section updates the deployment image.
@@ -70,7 +70,7 @@ kubectl kustomize .
 
 The deployment manifest will be updated, and the image name and tag will change according to the kustomization file.
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:

@@ -94,4 +94,78 @@ spec:
 
 ### Generators
 
-some text here
+Kustomize also supports generators, such as `secretGenerator` and `configMapGenerator`, which creates resources from the input file(s).
+
+```bash
+events {}
+
+http {
+    server {
+        listen 80;
+        location / {
+            return 200 "Hello from ConfigMap Nginx!\n";
+        }
+    }
+}
+```
+
+```yaml
+configMapGenerator:
+  - name: nginx-config
+    files:
+      - nginx.conf
+```
+
+```bash
+kubectl kustomize .
+```
+
+This will generate a ConfigMap using the data from `nginx.conf`.
+
+```bash
+apiVersion: v1
+data:
+  nginx.conf: |
+    events {}
+
+    http {
+        server {
+            listen 80;
+            location / {
+                return 200 "Hello from ConfigMap Dev Nginx!\n";
+            }
+        }
+    }
+kind: ConfigMap
+metadata:
+  name: nginx-config-59k264tbg4
+```
+
+it's also work for `secretGenerator`
+
+```bash
+echo "admin:admin123" > credential
+```
+
+```yaml
+secretGenerator:
+  - name: admin-secret
+    files:
+      - credential
+```
+
+```bash
+kubectl kustomize .
+```
+
+this will generate `Opaque` type secret and `base64` encoded
+
+```yaml
+apiVersion: v1
+data:
+  credential: YWRtaW46YWRtaW4xMjMK
+kind: Secret
+metadata:
+  name: admin-secret-kh798fmhhc
+type: Opaque
+```

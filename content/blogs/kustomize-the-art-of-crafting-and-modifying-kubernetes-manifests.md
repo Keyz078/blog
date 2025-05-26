@@ -288,7 +288,31 @@ spec:
             └── cm-patch.yaml
 ```
 
-<p style="text-align: justify">The <strong>base</strong> holds the original template manifests, and the <strong>overlays</strong> contains the changes or patches applied to them, heres some new manifest.</p><p style="text-align: justify"><strong>base/service.yaml</strong></p>
+<p style="text-align: justify">The <strong>base</strong> holds the original template manifests, and the <strong>overlays</strong> contains the changes or patches applied to them.</p><p style="text-align: justify"><strong>base/deployment.yaml</strong></p>
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: my-app
+  name: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - image: dummy
+        name: my-container
+```
+
+<p style="text-align: justify"><strong>base/service.yaml</strong></p>
 
 ```yaml
 apiVersion: v1
@@ -313,6 +337,21 @@ resources:
   - service.yaml
 ```
 
+**overlays/dev/nginx.conf**
+
+```yaml
+events {}
+
+http {
+    server {
+        listen 80;
+        location / {
+            return 200 "Hello from ConfigMap Nginx!\n";
+        }
+    }
+}
+```
+
 **overlays/dev/kustomization.yaml**
 
 ```yaml
@@ -333,6 +372,28 @@ patches:
   - path: patches/nodeport.yaml
 ```
 
+**overlays/dev/patches/cm-patch.yaml**
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  template:
+    spec:
+      volumes:
+        - name: nginx-config
+          configMap:
+             name: nginx-config
+      containers:
+        - name: my-container
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+```
+
 **overlays/dev/patches/nodeport.yaml**
 
 ```yaml
@@ -350,8 +411,6 @@ spec:
     nodePort: 31232
   type: NodePort
 ```
-
-The rest still using the previous manifest
 
 ```yaml
 kubectl kustomize .

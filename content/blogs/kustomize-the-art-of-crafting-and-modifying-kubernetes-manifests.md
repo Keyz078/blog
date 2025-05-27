@@ -6,7 +6,7 @@ cover:
   image: /images/kustomize-cover.png
   hiddenInList: true
 showToc: true
-tocopen: false
+tocopen: true
 tags:
   - kubernetes
 ---
@@ -494,3 +494,7 @@ service/dev-my-app   NodePort   10.43.194.245   <none>        80:32323/TCP   6s
 NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
 deployment.apps/dev-my-app   1/1     1            1           6s
 ```
+
+## Summary
+
+<p style="text-align: justify">Kustomize is a simple yet powerful way to tweak your Kubernetes YAMLs without touching the original files. With features like overlays, image overrides, and auto-generated ConfigMaps or Secrets, it makes managing different environments a breeze. It’s a favorite in CI/CD pipelines because it keeps things clean, organized, and easy to maintain even as your app grows.</p>

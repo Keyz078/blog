@@ -44,12 +44,12 @@ content:
         label: "Table Of Content"
         type: boolean
         default: true
-      - name: comments
-        label: "Comments"
-        type: boolean
-        default: false
       - name: tocopen
         label: "Table of Content Open (default: false)"
+        type: boolean
+        default: false
+      - name: comments
+        label: "Comments"
         type: boolean
         default: false
       - name: tags

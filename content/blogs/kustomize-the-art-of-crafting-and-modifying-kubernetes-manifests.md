@@ -6,6 +6,7 @@ cover:
   image: /images/kustomize-cover.png
   hiddenInList: true
 showToc: true
+comments: true
 tocopen: true
 tags:
   - kubernetes
